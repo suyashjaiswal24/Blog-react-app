@@ -14,6 +14,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 8px;
+}
+
+.postInfoDetails{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .postCat{
@@ -39,7 +46,14 @@
     font-style: italic;
     font-size: 13px;
     color: #999;
-    margin-top: 15px;
+    margin-top: 5px;
+}
+
+.singlePostAuthor{
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .postDesc{

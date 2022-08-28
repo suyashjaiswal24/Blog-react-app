@@ -18,7 +18,14 @@ export default function Post({ post }) {
 					<span className='postTitle'>{post.title}</span>
 				</Link>
 				<hr />
-				<span className="postDate">{new Date(post.createdAt).toDateString()}</span>
+				<div className="postInfoDetails">
+					<span className="singlePostAuthor">By:&ensp; 
+						<Link to={`/?user=${post.username}`} className='link' style={{color: "teal"}}>
+							<u><b>{post.username}</b></u>
+						</Link>
+					</span>
+					<span className="postDate">{new Date(post.createdAt).toDateString()}</span>
+				</div>
 			</div>
 			<p className="postDesc">{post.desc}</p>
 		</div>
