@@ -3,7 +3,6 @@ import { useRef } from "react"
 import { Link } from "react-router-dom"
 import { Context } from "../../context/Context"
 import "./login.css"
-import axios from "axios"
 import { axiosInstance } from "../../config"
 
 export default function Login() {
@@ -32,19 +31,43 @@ export default function Login() {
 	}
 
 	return (
-		<div className="login">
-			<span className="loginTitle">Login</span>
-			<form className="loginForm" onSubmit={handleSubmit}>
-				<label>Username</label>
-				<input type="text" className="loginInput" placeholder="Enter your Username" ref={userRef} />
-				<label>Password</label>
-				<input type="password" className="loginInput" placeholder="Enter your password" ref={passwordRef} />
-				<button className="loginButton" type="submit" disabled={isFetching}>Login</button>
-				{!success && <span style={{ color: "red", textAlign: "center", marginTop: "20px" }}>Wrong Credentials...</span>}
-			</form>
-			<button className="loginRegisterButton">
-				<Link className="link" to={"/register"}>REGISTER</Link>
-			</button>
-		</div>
+		<>
+			<div className="login">
+				<span className="loginTitle">Login</span>
+				<form className="loginForm" onSubmit={handleSubmit}>
+					<label>Username</label>
+					<input type="text" className="loginInput" placeholder="Enter your Username" ref={userRef} />
+					<label>Password</label>
+					<input type="password" className="loginInput" placeholder="Enter your password" ref={passwordRef} />
+					<button className="loginButton" type="submit" disabled={isFetching}>Login</button>
+					{!success && <span style={{ color: "red", textAlign: "center", marginTop: "20px" }}>Wrong Credentials...</span>}
+				</form>
+				<button className="loginRegisterButton">
+					<Link className="link" to={"/register"}>REGISTER</Link>
+				</button>
+			</div>
+			<div className="sample">
+				<table>
+					<caption>Sample User Credentials</caption>
+					<tr>
+						<th>Username</th>
+						<th>Password</th>
+					</tr>
+					<tr>
+						<td>user111</td>
+						<td>1234</td>
+					</tr>
+					<tr>
+						<td>user222</td>
+						<td>1234</td>
+					</tr>
+					<tr>
+						<td>user333</td>
+						<td>1234</td>
+					</tr>
+
+				</table>
+			</div>
+		</>
 	)
 }

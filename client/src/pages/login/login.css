@@ -60,3 +60,27 @@
     color: white;
     border-radius: 10px;
 }
+
+.sample{
+    position: absolute;
+    top: 240px;
+    right: 150px;
+}
+
+.sample table,th,td{
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+.sample td{
+    padding: 10px 20px;
+}
+
+.sample th{
+    padding: 5px 10px;
+}
+
+.sample caption{
+    font-size: 1.5rem;
+    padding-bottom: 15px;
+}
