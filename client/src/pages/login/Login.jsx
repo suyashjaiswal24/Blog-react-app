@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useRef } from "react"
 import { Link } from "react-router-dom"
 import { Context } from "../../context/Context"
@@ -10,6 +10,7 @@ export default function Login() {
 
 	const userRef = useRef()
 	const passwordRef = useRef()
+	const [success, setSuccess] = useState(true)
 	const { dispatch, isFetching} = useContext(Context)
 
 	const handleSubmit = async (e)=>{
@@ -22,6 +23,10 @@ export default function Login() {
 			})
 			dispatch({type:"LOGIN_SUCCESS", payload:res.data})
 		} catch(err){
+			setSuccess(false)
+			setTimeout(() => {
+				setSuccess(true);
+			}, 2000)
 			dispatch({type:"LOGIN_FAILURE"})
 		}
 	}
@@ -35,6 +40,7 @@ export default function Login() {
 				<label>Password</label>
 				<input type="password" className="loginInput" placeholder="Enter your password" ref={passwordRef} />
 				<button className="loginButton" type="submit" disabled={isFetching}>Login</button>
+				{!success && <span style={{ color: "red", textAlign: "center", marginTop: "20px" }}>Wrong Credentials...</span>}
 			</form>
 			<button className="loginRegisterButton">
 				<Link className="link" to={"/register"}>REGISTER</Link>
